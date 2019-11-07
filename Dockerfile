@@ -18,4 +18,7 @@ COPY . /src
 WORKDIR /src
 
 RUN . /opt/rh/devtoolset-8/enable ; \
+    bazel build --crosstool_top=//gcc8:toolchain @com_google_protobuf//:protoc
+
+RUN . /opt/rh/devtoolset-8/enable ; \
     bazel build @com_google_protobuf//:protoc
